@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
+//using System.Collections;
+using System;
+
 
 public class BlockController : MonoBehaviour {
 	public int blockNumber { get; set; }
@@ -52,6 +54,14 @@ public class BlockController : MonoBehaviour {
 		}
 
 		// after drop, OnCollisionEnter (private method) is called when landed on BlackPool.
+	}
+
+	public Vector3 CorrectPosition(float x, float z) {
+		double correctX = Math.Round(x,MidpointRounding.AwayFromZero);
+		double correctz = Math.Round(z,MidpointRounding.AwayFromZero);
+		Vector3 correctedVector = new Vector3(x, 0, z);
+
+		return correctedVector;
 	}
 
 
